@@ -1,7 +1,8 @@
 {
   "name": "contra.js",
   "version": "0.1.0",
-  "description": "A Swiss army knife for working with 2D vectors math",
+  "author": "srx",
+  "description": "A Swiss army knife for 2D vectors math",
   "main": "dist/contra.js",
   "scripts": {
     "start": "webpack --config webpack.config.js --watch --mode=development",
@@ -20,19 +21,15 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/s-r-x/contra"
   },
   "keywords": [
     "vector",
     "2D"
   ],
-  "author": "s-r-x",
   "license": "ISC",
-  "bugs": {
-    "url": ""
-  },
   "module": "src/index.js",
-  "homepage": "",
+  "homepage": "https://github.com/s-r-x/contra",
   "devDependencies": {
     "ava": "^1.2.1",
     "mocha": "^6.0.2",
