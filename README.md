@@ -8,7 +8,7 @@
 $ npm install eminus
 ```
 
-```javasript
+```javascript
 const { Vector, toDegrees, toRadians } = require('contra.js');
 // or
 import Vector, { toDegrees, ToRadians } from 'contra.js';
