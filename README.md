@@ -50,7 +50,7 @@ vec.setMag(10)
 // aliases:
 // * vec.setMagnitude
 
-// ^-^ get square of magnitude(sqrt is slow, you might don't need it) ^-^
+// ^-^ get square of magnitude ^-^
 vec.magSq();
 // aliases:
 // * vec.magnitudeSq
