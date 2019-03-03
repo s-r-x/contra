@@ -1,6 +1,6 @@
 # Contra
 
-> A Swiss army knife for working with 2D vectors math
+> A Swiss army knife for 2D vectors math
 
 ## Getting started
 
