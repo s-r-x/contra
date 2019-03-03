@@ -186,10 +186,10 @@ Vector.prototype.toString = function() {
   return this.x + ' ' + this.y;
 }
 
-export function toDegrees(rad) {
+export function toDeg(rad) {
   return 57.29577951308232 * rad;
 }
-export function toRadians(deg) {
+export function toRad(deg) {
   return 0.017453292519943295 * deg;
 }
 

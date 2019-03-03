@@ -1,4 +1,4 @@
-const { Vector, toDegrees, toRadians } = require('../dist/contra');
+const { Vector, toDeg, toRad } = require('../dist/contra');
 const test = require('ava');
 
 let vec1;
@@ -128,10 +128,10 @@ test('to string', t => {
   t.is('2 3', str);
 });
 test('degress to rad', t => {
-  t.is(360, toDegrees(Math.PI * 2));
+  t.is(360, toDeg(Math.PI * 2));
 });
 test('rad to degree', t => {
-  t.is(Math.PI, toRadians(180));
+  t.is(Math.PI, toRad(180));
 });
 test('rand', t => {
   const vec = new Vector().rand();

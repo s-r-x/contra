@@ -9,9 +9,9 @@ npm install contra.js
 ```
 
 ```javascript
-const { Vector, toDeg, toRad } = require('contra.js');
-// or
 import Vector, { toDeg, ToRad } from 'contra.js';
+// or
+const { Vector, toDeg, toRad } = require('contra.js');
 
 
 // ^-^ create ^-^
