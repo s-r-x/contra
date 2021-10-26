@@ -1,6 +1,6 @@
 # Contra
 
-> A Swiss army knife for 2D vectors math
+A Swiss army knife for 2D vectors math
 
 ## Getting started
 
@@ -10,8 +10,9 @@ npm install contra.js
 
 ```javascript
 import Vector, { toDeg, ToRad } from 'contra.js';
-// or
-const { Vector, toDeg, toRad } = require('contra.js');
+
+const vec1 = new Vector(1, 2);
+const vec2 = Vector.create({x: 2, y: 2}).add(vec1)
 
 
 // ^-^ create ^-^

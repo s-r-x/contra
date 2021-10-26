@@ -1,38 +1,56 @@
 {
   "name": "contra.js",
   "version": "0.1.0",
-  "author": "srx",
+  "author": "Ilya Strus <strax1990@gmail.com>",
   "description": "A Swiss army knife for 2D vectors math",
-  "main": "dist/contra.js",
+  "main": "./dist/contra.umd.js",
+  "module": "./dist/contra.es.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
-    "start": "webpack --config webpack.config.js --watch --mode=development",
-    "build": "webpack --config webpack.config.js --mode=production",
-    "test": "ava -s",
-    "test:watch": "ava --watch -s"
+    "dev": "vite",
+    "serve": "vite preview",
+    "build": "npm run build.code && npm run build.types",
+    "build.types": "tsc -p tsconfig.build.json",
+    "build.code": "vite build",
+    "lint": "eslint --ext .ts,.tsx src",
+    "lint.strict": "eslint --ext .ts,.tsx src --max-warnings 0",
+    "lint.fix": "eslint --ext .ts,.tsx --fix src",
+    "check-types": "tsc",
+    "docs.build": "typedoc src/index.ts",
+    "docs.watch": "typedoc src/index.ts --watch"
   },
-  "ava": {
-    "files": [
-      "test/index.js"
-    ],
-    "sources": [
-      "dist/contra.js"
-    ],
-    "verbose": true
-  },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/s-r-x/contra"
   },
+  "homepage": "https://github.com/s-r-x/contra",
+  "bugs": {
+    "url": "https://github.com/s-r-x//thissues"
+  },
   "keywords": [
+    "math",
     "vector",
     "2D"
   ],
-  "license": "ISC",
-  "module": "src/index.js",
-  "homepage": "https://github.com/s-r-x/contra",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
     "ava": "^1.2.1",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "mocha": "^6.0.2",
+    "typedoc": "^0.22.7",
+    "typescript": "^4.4.4",
+    "vite": "^2.6.11",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
   }
