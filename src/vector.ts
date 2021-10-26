@@ -392,7 +392,6 @@ export class Vector {
   }
   /**
    * Convert vector to array
-   * @param angle - angle in radians
    * @example
    * ```ts
    * Vector.create(1, 2).toArray()
@@ -403,7 +402,6 @@ export class Vector {
   }
   /**
    * Convert vector to object
-   * @param angle - angle in radians
    * @example
    * ```ts
    * Vector.create(1, 2).toObject()
@@ -414,7 +412,6 @@ export class Vector {
   }
   /**
    * Convert vector to JSON
-   * @param angle - angle in radians
    * @example
    * ```ts
    * Vector.create(1, 2).toJSON()
@@ -425,7 +422,6 @@ export class Vector {
   }
   /**
    * Convert vector to string
-   * @param angle - angle in radians
    * @example
    * ```ts
    * Vector.create(1, 2).toString()
