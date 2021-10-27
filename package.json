@@ -19,6 +19,7 @@
     "docs.build": "typedoc src/index.ts --out docs/contra",
     "docs.watch": "typedoc src/index.ts --watch",
     "test": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' TS_NODE_TRANSPILE_ONLY=true mocha -r ts-node/register \"tests/**/*.ts\"",
+    "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release"
   },
   "files": [
