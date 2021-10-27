@@ -97,9 +97,23 @@ export class Vector {
    *vec.add(anotherVec);
    * ```
    */
-  public add(point: IPoint): this {
-    this.x += point.x;
-    this.y += point.y;
+  public add(point: IPoint): this;
+  /**
+   * Add scalar to x and y components
+   * @example
+   * ```ts
+   *vec.add(1);
+   * ```
+   */
+  public add(scalar: number): this;
+  public add(scalarOrPoint: IPoint | number): this {
+    if (typeof scalarOrPoint === 'object') {
+      this.x += scalarOrPoint.x;
+      this.y += scalarOrPoint.y;
+    } else {
+      this.x += scalarOrPoint;
+      this.y += scalarOrPoint;
+    }
     return this;
   }
   /**
@@ -490,7 +504,7 @@ export class Vector {
    * ```
    */
   public notEq(point: IPoint): boolean {
-    return this.x !== point.x || this.y !== point.y;
+    return !this.eq(point);
   }
   /**
    * Randomize x and y components of the vector
@@ -617,9 +631,23 @@ export class Vector {
    *vec.sub(Vector.create(1, 2));
    * ```
    */
-  public sub(point: IPoint): this {
-    this.x -= point.x;
-    this.y -= point.y;
+  public sub(point: IPoint): this;
+  /**
+   * Subtract scalar from x and y components
+   * @example
+   * ```ts
+   *vec.sub(1);
+   * ```
+   */
+  public sub(scalar: number): this;
+  public sub(scalarOrPoint: IPoint | number): this {
+    if (typeof scalarOrPoint === 'object') {
+      this.x -= scalarOrPoint.x;
+      this.y -= scalarOrPoint.y;
+    } else {
+      this.x -= scalarOrPoint;
+      this.y -= scalarOrPoint;
+    }
     return this;
   }
   /**
@@ -740,8 +768,9 @@ export class Vector {
    */
   public unit(): this {
     const mag = this.length();
-    this.x /= mag;
-    this.y /= mag;
+    if (mag !== 0) {
+      this.mul(1 / this.length());
+    }
     return this;
   }
 }
