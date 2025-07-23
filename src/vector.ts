@@ -156,6 +156,27 @@ export class Vector {
     return degrees ? radToDeg(angle) : angle;
   }
   /**
+   * Set the angle of rotation of the vector
+   * @param degrees - use degrees instead of radians
+   * @example
+   * ```ts
+   *vec.setAngle(Math.PI);
+   * ```
+   * @example
+   * ```ts
+   *vec.setAngle(90, true);
+   * ```
+   */
+  public setAngle(angle: number, degrees?: boolean): this {
+    if (degrees) {
+      angle = degToRad(angle);
+    }
+    const len = this.length();
+    this.x = len * Math.cos(angle);
+    this.y = len * Math.sin(angle);
+    return this;
+  }
+  /**
    * Get the angle between two vectors
    * @param degrees - return angle in degrees instead of radians
    * @example

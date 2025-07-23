@@ -81,6 +81,14 @@ describe('methods', () => {
       });
     });
   });
+  describe('setAngle', () => {
+    it('should change angle in radians', () => {
+      expect(Vector.create(90, 23).setAngle(Math.PI).angle()).to.eq(Math.PI);
+    });
+    it('should change angle in degrees', () => {
+      expect(Vector.create(50, 34).setAngle(90, true).angle(true)).to.eq(90);
+    });
+  });
   describe('angle', () => {
     it('should return angle in radians', () => {
       expect(Vector.create(0, 45).angle()).to.eq(1.5707963267948966);
