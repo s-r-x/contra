@@ -5,11 +5,13 @@ runs:
     - uses: actions/setup-node@v2
       with:
         node-version: "16.4"
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       id: npm_cache
       with:
         path: ./node_modules
         key: deps-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          deps-
     - name: Install dependencies
       run: |
         if echo ${{ steps.npm_cache.outputs.cache-hit }} | grep -c "true"
