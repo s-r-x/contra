@@ -1,6 +1,6 @@
 {
   "name": "contra.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Ilya Strus <strax1990@gmail.com>",
   "description": "A Swiss army knife for 2D vectors math",
   "main": "./dist/contra.umd.js",
