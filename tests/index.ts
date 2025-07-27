@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Vector } from '../src';
+import { IPolarPoint, Vector } from '../src';
 
 describe('constructor', () => {
   it('should create new vector from point', () => {
@@ -29,6 +29,18 @@ describe('statics', () => {
     });
     it('should create new vector from another vector', () => {
       expect(Vector.fromPoint(Vector.create(1, 2))).to.deep.eq({ x: 1, y: 2 });
+    });
+  });
+  describe('fromPolar', () => {
+    it('should create a new vector from polar coordinates', () => {
+      const vec = Vector.fromPolar({ angle: Math.PI, length: 10 });
+      expect(vec.length()).to.eq(10);
+      expect(vec.angle()).to.eq(Math.PI);
+    });
+    it('should work with degrees', () => {
+      const vec = Vector.fromPolar({ angle: 90, length: 5 }, true);
+      expect(vec.length()).to.eq(5);
+      expect(vec.angle(true)).to.eq(90);
     });
   });
   describe('random', () => {
@@ -106,6 +118,12 @@ describe('methods', () => {
     it('should return angle in degrees', () => {
       expect(Vector.create(0, 0).angleBetween({ x: 90, y: 90 }, true)).to.eq(
         45
+      );
+    });
+    it('should return angle in degrees', () => {
+      expect(Vector.create(1, 0).angleBetween({ x: 0, y: 1 }, true)).to.eq(135);
+      expect(Vector.create(10, 0).angleBetween({ x: 0, y: 10 }, true)).to.eq(
+        135
       );
     });
   });
@@ -357,6 +375,24 @@ describe('methods', () => {
   describe('toString', () => {
     it('should convert vector to string', () => {
       expect(Vector.create(1, 2).toString()).to.eq('x: 1, y: 2');
+    });
+  });
+  describe('toPolar', () => {
+    it('should convert to polar coordinates', () => {
+      const polarPoint: IPolarPoint = {
+        angle: Math.PI / 2,
+        length: 10,
+      };
+      expect(Vector.fromPolar(polarPoint).toPolar()).to.deep.eq(polarPoint);
+    });
+    it('should work with degrees', () => {
+      const polarPoint: IPolarPoint = {
+        angle: 45,
+        length: 10,
+      };
+      expect(Vector.fromPolar(polarPoint, true).toPolar(true)).to.deep.eq(
+        polarPoint
+      );
     });
   });
   describe('unit', () => {

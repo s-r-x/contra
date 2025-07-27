@@ -1,4 +1,4 @@
-import type { IPoint } from './typings';
+import type { IPoint, IPolarPoint } from './typings';
 import { degToRad, radToDeg, random } from './utils';
 
 export class Vector {
@@ -35,6 +35,25 @@ export class Vector {
    */
   public static fromPoint(point: IPoint): Vector {
     return new Vector(point);
+  }
+  /**
+   *
+   * Create a new vector from polar coordinates
+   * @param degrees - true if the angle is in degrees
+   * @example
+   * ```ts
+   * const vec = Vector.fromPolar({ length: 10, angle: Math.PI });
+   * ```
+   * @example
+   * ```ts
+   * const vec = Vector.fromPolar({ length: 5, angle: 45 }, true);
+   * ```
+   */
+  public static fromPolar(point: IPolarPoint, degrees?: boolean) {
+    const angle = degrees ? degToRad(point.angle) : point.angle;
+    const x = point.length * Math.cos(angle);
+    const y = point.length * Math.sin(angle);
+    return new Vector(x, y);
   }
   /**
    * Create a new vector with random x and y components
@@ -780,6 +799,24 @@ export class Vector {
     return 'x: ' + this.x + ', y: ' + this.y;
   }
   /**
+   * Convert from cartesian to polar coordinates
+   * @param degrees - return the angle in degrees instead of radians
+   * @example
+   * ```ts
+   * Vector.create(1, 2).toPolar()
+   * ```
+   * @example
+   * ```ts
+   * Vector.create(1, 2).toPolar(true)
+   * ```
+   */
+  public toPolar(degrees?: boolean): IPolarPoint {
+    return {
+      length: this.length(),
+      angle: this.angle(degrees),
+    };
+  }
+  /**
    * Normalize the vector
    * {@link https://en.wikipedia.org/wiki/Unit_vector}
    * @example
@@ -790,7 +827,7 @@ export class Vector {
   public unit(): this {
     const mag = this.length();
     if (mag !== 0) {
-      this.mul(1 / this.length());
+      this.mul(1 / mag);
     }
     return this;
   }
