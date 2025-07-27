@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/s-r-x/contra/compare/v1.1.0...v1.2.0) (2025-07-27)
+
+
+### Features
+
+* add fromPolar static method and toPolar method ([11935c4](https://github.com/s-r-x/contra/commit/11935c4a9289576a249c2bf7f674c098bc4556bd))
+
 # [1.1.0](https://github.com/s-r-x/contra/compare/v1.0.1...v1.1.0) (2025-07-23)
 
 
